@@ -1,23 +1,28 @@
 import React from "react";
 import LoginButton from "../LoginBtn";
 import LogoutButton from "../LogoutBtn";
-import {Container, Row, Col} from "../Grid";
 import DateTime from "../DateTime";
+import {TimeToggler} from "../TimeToggler";
+import {Container, Row, Col} from "../Grid";
 import Search from "../Search"
 import "./style.css"
-import { TimeToggler } from "../TimeToggler";
 
 function Nav() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
       <div id="navInfo">
-        <img className="img-fluid" src= "assets/logo.png" height= "75px" width= "75px"></img>
+        <img className="img-fluid logo" src= "assets/logo.png" height= "75px" width= "75px"></img>
+        <div id="loginDiv">
         <DateTime />
-        <LoginButton></LoginButton>
-        <LogoutButton></LogoutButton>
+        <LoginButton/>
+        <LogoutButton/>
+        </div>
       </div>
-      <TimeToggler />
-      <Search />
+      <div id="navSplit"/>
+      <div id="navSearch">
+        <TimeToggler/>
+        <Search />
+      </div>
     </nav>
   );
 }

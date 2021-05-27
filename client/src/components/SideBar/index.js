@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react';
-import {Container} from "../Grid";
+import {Container, Col, Row} from "../Grid";
+import DateTime from "../DateTime";
+import { TimeToggler } from "../TimeToggler";
 //import ArticleCategory from "../../utils/ArticleCategory";
 import CategoryContext from "../../utils/CategoryContext";
 import ArticlesBtn from "../ArticlesBtn"
@@ -46,7 +48,7 @@ function SideBar() {
 const [category] = useState(categories);
 
 return (
-    <div className="sidebar-sticky">
+    <Container sideBar>
         <div className="card" id="catList">
             <div className="card-header catHeader">
                 <h5>Categories</h5>
@@ -67,7 +69,7 @@ return (
             ))}
             <ArticlesBtn />
         </div>
-    </div>
+    </Container>
 )
 };
 

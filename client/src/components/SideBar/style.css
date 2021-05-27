@@ -1,10 +1,5 @@
-.sidebar-sticky {
-    position: -webkit-fixed;
+.side-Bar {
     position: fixed;
-    padding:0px;
-    display: flex;
-    width:300px;
-    height:100%;
 }
 
 .catHeader{
@@ -13,6 +8,7 @@
     border-bottom:1px solid #494b68;
     color:white;
     text-align: center;
+
 }
 
 .categorySearch {
@@ -33,8 +29,18 @@
     content: "<br>"
 }
 
-#catList {
+#timeBar {
+    min-height:200px;
     width:100%;
+    border-radius:8px;
+    border:2px solid #022140;
+    background-color:#256077;
+}
+
+#catList {
+    position: fixed;
+    width: auto;
+    height:100%;
     border-radius:8px;
     border:2px solid #022140;
     background-color:#256077;
