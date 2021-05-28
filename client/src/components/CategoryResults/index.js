@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from 'react';
 import ArticleContext from "../../utils/ArticleContext";
 import CategoryContext from "../../utils/CategoryContext";
 import { Col, Row, Container } from "../Grid";
+import { Person } from 'react-bootstrap-icons';
 import FavButton from "../FavButton";
 import './style.css'
 
@@ -31,8 +32,14 @@ function CategoryResults() {
 
     function getTitle(title) {
         
-        let t = title.substr(0, title.lastIndexOf("-"));
-        return t
+        console.log(title)
+        if (title.split("-").length === 1) {
+            return title
+        } else {
+            let newtitle = title.substr(0, title.lastIndexOf("-"));
+            return newtitle
+        }
+
     }
 
     function getArticleDesc(article) {
@@ -57,9 +64,9 @@ function CategoryResults() {
                                         <Row>
                                             <Col size="11">
                                                 <div className="title">
-                                                <a className="text-break" href={article.url}>
-                                                    {getTitle(article.title)}
-                                                </a>
+                                                    <a className="text-break" href={article.url}>
+                                                        {getTitle(article.title)}
+                                                    </a>
                                                 </div>
                                             </Col>
                                             <Col size="1" >
@@ -82,11 +89,12 @@ function CategoryResults() {
 
                                         <p className="card-text text-start text-break artText">{getArticleDesc(article.description)}...</p>
                                         {article.author ? (
+
                                             <h7 className="text-break authorDate">
-                                                By: {article.author}
+                                                {article.author} <Person />
                                             </h7>
                                         ) : (
-                                            <h7 className="text-break authorDate">By: <i>author not provided</i></h7>
+                                            <h7 className="text-break authorDate"> <i>author not provided</i> <Person /></h7>
                                         )}
                                     </div>
                                 </div>

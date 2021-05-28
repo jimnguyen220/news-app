@@ -36,8 +36,9 @@
     background-color: #022140;
 }
 
-.card-text {
+.artText {
     font-size: 22px;
+    padding: 10px;
 }
 
 .article {
@@ -50,14 +51,17 @@
 
 .articleImg {
     float: left;
-    height: 100%;
-    width: 30%;
+    height: 20%;
     margin-right: 1%;
+}
+
+.img-fluid {
+    height: 235px;
 }
 
 .articlesCard {
     border-radius: 8px;
-    height: 100%;
+    
     min-height: 200px;
     border: 1px solid #256077;
 }
@@ -73,8 +77,7 @@
 }
 
 .card-body {
-    padding: 0px;
-    height: 100%;
+    padding:10px;
 }
 
 #artList {

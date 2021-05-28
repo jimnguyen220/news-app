@@ -30,7 +30,7 @@ function Search() {
 
 
     return (
-        <form className="d-flex">
+        <form className="d-flex searchBar">
             <input
                 className="form-control me-2"
                 id="search-input"
@@ -39,7 +39,7 @@ function Search() {
                 placeholder="Search"
             />
             <button
-                className="btn btn-success"
+                className="btn btn-success searchBtn"
                 type="submit"
                 onClick={handleOnClick}
             >

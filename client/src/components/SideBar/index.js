@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
-import {Container, Col, Row} from "../Grid";
+
+import { Container, Col, Row } from "../Grid";
 import DateTime from "../DateTime";
 import { TimeToggler } from "../TimeToggler";
 //import ArticleCategory from "../../utils/ArticleCategory";
@@ -8,7 +9,7 @@ import ArticlesBtn from "../ArticlesBtn"
 import "./style.css"
 
 
-function SideBar() {
+function SideBar () {
 
     const { setCategory } = useContext(CategoryContext);
 
@@ -41,36 +42,38 @@ function SideBar() {
             name: "Sports",
             icon: "/assets/sports.svg",
         }
-    ]
+    ];
+  
+    const [category] = useState(categories);
 
-
-
-const [category] = useState(categories);
-
-return (
-    <Container sideBar>
-        <div className="card" id="catList">
-            <div className="card-header catHeader">
-                <h5>Categories</h5>
-            </div>
-            {category.map(categoryElement => (
-                <li className="categorySearch">
-                    <button
-                        type="button"
-                        className="btn btn-link category-link"
-                        id={categoryElement.name}
-                        value={categoryElement.name}
-                        onClick={e => setCategory(e.target.value)}
-                    >
-                        <img src={categoryElement.icon} className={categoryElement.name + "-icon category-icons"} height="25px" width="25px"></img>
-                        {categoryElement.name}
-                    </button>
-                </li>
-            ))}
-            <ArticlesBtn />
-        </div>
-    </Container>
-)
+    return (
+        <Container sideBar className="side-Bar">
+            <Row>
+                <div className="sidebar-cards" id="catList">
+                    <div className="card-header catHeader">
+                        <h5>Categories</h5>
+                    </div>
+                    {category.map(categoryElement => (
+                        <li className="categorySearch">
+                            <button
+                                type="button"
+                                className="btn btn-link category-link category-btn"
+                                id={categoryElement.name}
+                                value={categoryElement.name}
+                                onClick={e => setCategory(e.target.value)}
+                            >
+                                <img src={categoryElement.icon} className={categoryElement.name + "-icon category-icons"} height="25px" width="25px"></img>
+                                {categoryElement.name}
+                            </button>
+                        </li>
+                    ))}
+                    <li className="categorySearch saved-articles-btn">
+                        <ArticlesBtn />
+                    </li>
+                </div>
+            </Row>
+        </Container>
+    )
 };
 
 export default SideBar;
